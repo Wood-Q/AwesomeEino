@@ -7,7 +7,6 @@ import (
 	"github.com/cloudwego/eino-ext/components/model/ark"
 	"github.com/cloudwego/eino/components/prompt"
 	"github.com/cloudwego/eino/schema"
-	"github.com/joho/godotenv"
 )
 
 func TemplateChat() {
@@ -26,11 +25,6 @@ func TemplateChat() {
 		"history_key": []*schema.Message{{Role: schema.User, Content: "告诉我油画是什么?"}, {Role: schema.Assistant, Content: "油画是xxx"}},
 	}
 	messages, err := template.Format(ctx, params)
-	if err != nil {
-		panic(err)
-	}
-
-	err = godotenv.Load()
 	if err != nil {
 		panic(err)
 	}

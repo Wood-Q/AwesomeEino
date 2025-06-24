@@ -2,20 +2,15 @@ package main
 
 import (
 	"context"
-	"log"
 	"os"
 	"time"
 
 	"github.com/cloudwego/eino-ext/components/model/ark"
 	"github.com/cloudwego/eino/schema"
-	"github.com/joho/godotenv"
 )
 
 func ChatStream() {
-	err := godotenv.Load() // 加载环境变量
-	if err != nil {
-		log.Fatal("Error loading .env file") // 处理加载错误
-	}
+
 	ctx := context.Background()
 
 	timeout := 30 * time.Second
