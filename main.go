@@ -1,6 +1,7 @@
 package main
 
 func main() {
-	ChatStream()
+	TemplateChat()
+	//ChatStream()
 	//ChatGenerate()
 }
