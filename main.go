@@ -11,7 +11,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file") // 处理加载错误
 	}
-	EmbedText()
+	IndexerRAG()
+	// EmbedText()
 	//TemplateChat()
 	//ChatStream()
 	//ChatGenerate()
