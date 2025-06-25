@@ -7,6 +7,7 @@ require (
 	github.com/cloudwego/eino-ext/components/embedding/ark v0.0.0-20250624023530-68a1e4282a8e
 	github.com/cloudwego/eino-ext/components/indexer/volc_vikingdb v0.0.0-20250624023530-68a1e4282a8e
 	github.com/cloudwego/eino-ext/components/model/ark v0.1.13
+	github.com/cloudwego/eino-ext/components/retriever/volc_vikingdb v0.0.0-20250624023530-68a1e4282a8e
 	github.com/joho/godotenv v1.5.1
 )
 

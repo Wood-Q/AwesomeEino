@@ -105,6 +105,8 @@ github.com/cloudwego/eino-ext/components/indexer/volc_vikingdb v0.0.0-2025062402
 github.com/cloudwego/eino-ext/components/indexer/volc_vikingdb v0.0.0-20250624023530-68a1e4282a8e/go.mod h1:fuNWuwY02X54BN9YDOu45WeYWnY0flzptAfahWeop1k=
 github.com/cloudwego/eino-ext/components/model/ark v0.1.13 h1:gQYf6BOnknkoU1ZOx5CPRrLqsBQCpP/2YDZHvLPJdk4=
 github.com/cloudwego/eino-ext/components/model/ark v0.1.13/go.mod h1:YBWArYd8ctuc4Zts2wEb/Q8iSxvTyHPq5zUQoHuY6OU=
+github.com/cloudwego/eino-ext/components/retriever/volc_vikingdb v0.0.0-20250624023530-68a1e4282a8e h1:ibaowpBAOH39jJ7egmOBLi4INxRiytJnDyzn4M2kQsA=
+github.com/cloudwego/eino-ext/components/retriever/volc_vikingdb v0.0.0-20250624023530-68a1e4282a8e/go.mod h1:6GttY/Lfmm5rt5ErfHZOXCA+hHVaCCvpVz2QKoxJKiY=
 github.com/cloudwego/iasm v0.2.0/go.mod h1:8rXZaNYT2n95jn+zTI1sDr+IgcD2GVs0nlbbQPiEFhY=
 github.com/cncf/udpa/go v0.0.0-20191209042840-269d4d468f6f/go.mod h1:M8M6+tZqaGXZJjfX53e64911xZQV5JYwmTeXPW+k8Sc=
 github.com/cncf/udpa/go v0.0.0-20201120205902-5459f2c99403/go.mod h1:WmhPx2Nbnhtbo57+VJT5O0JRkEi1Wbu0z5j0R8u5Hbk=
