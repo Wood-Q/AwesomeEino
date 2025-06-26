@@ -9,7 +9,6 @@ import (
 	"github.com/cloudwego/eino-ext/components/embedding/ark"
 	"github.com/cloudwego/eino-ext/components/indexer/milvus"
 	"github.com/cloudwego/eino/schema"
-	cli "github.com/milvus-io/milvus-sdk-go/v2/client"
 	"github.com/milvus-io/milvus-sdk-go/v2/entity"
 )
 
@@ -56,16 +55,9 @@ func IndexerRAG() {
 	if err != nil {
 		panic(err)
 	}
-	//初始化客户端
-	client, err := cli.NewClient(ctx, cli.Config{
-		Address: "localhost:19530",
-	})
-	if err != nil {
-		log.Fatalf("Failed to create client: %v", err)
-	}
 
 	indexer, err := milvus.NewIndexer(ctx, &milvus.IndexerConfig{
-		Client:            client,
+		Client:            MilvusCli,
 		Collection:        collection,
 		Fields:            fields,
 		Embedding:         embedder,
