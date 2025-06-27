@@ -4,6 +4,7 @@ go 1.24.3
 
 require (
 	github.com/cloudwego/eino v0.3.44
+	github.com/cloudwego/eino-ext/components/document/transformer/splitter/markdown v0.0.0-20250624023530-68a1e4282a8e
 	github.com/cloudwego/eino-ext/components/embedding/ark v0.0.0-20250624023530-68a1e4282a8e
 	github.com/cloudwego/eino-ext/components/indexer/milvus v0.0.0-20250626134119-cf4f96ea0039
 	github.com/cloudwego/eino-ext/components/model/ark v0.1.13
