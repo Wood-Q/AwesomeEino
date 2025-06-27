@@ -22,10 +22,10 @@ func RetrieverRAG() {
 		panic(err)
 	}
 	retriever, err := milvus.NewRetriever(ctx, &milvus.RetrieverConfig{
-		Client:      MilvusCli,
-		Collection:  "AwesomeEino",
-		Partition:   nil,
-		VectorField: "vector",
+		Client:            MilvusCli,
+		Collection:        "AwesomeEino",
+		Partition:         nil,
+		VectorField:       "vector",
 		OutputFields: []string{
 			"id",
 			"content",

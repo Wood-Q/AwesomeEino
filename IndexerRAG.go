@@ -12,7 +12,7 @@ import (
 	"github.com/milvus-io/milvus-sdk-go/v2/entity"
 )
 
-var collection = "try"
+var collection = "AwesomeEino"
 
 var fields = []*entity.Field{
 	{
@@ -25,9 +25,9 @@ var fields = []*entity.Field{
 	},
 	{
 		Name:     "vector", // 确保字段名匹配
-		DataType: entity.FieldTypeFloatVector,
+		DataType: entity.FieldTypeBinaryVector,
 		TypeParams: map[string]string{
-			"dim": "2560",
+			"dim": "81920",
 		},
 	},
 	{
@@ -61,7 +61,6 @@ func IndexerRAG() {
 		Collection:        collection,
 		Fields:            fields,
 		Embedding:         embedder,
-		DocumentConverter: floatDocumentConverter,
 	})
 	if err != nil {
 		log.Fatalf("Failed to create indexer: %v", err)
