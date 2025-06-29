@@ -105,8 +105,8 @@ github.com/clbanning/mxj v1.8.4/go.mod h1:BVjHeAH+rl9rs6f+QIpeRl0tfu10SXn1pUSa5P
 github.com/client9/misspell v0.3.4/go.mod h1:qj6jICC3Q7zFZvVWo7KLAzC3yx5G7kyvSDkc90ppPyw=
 github.com/cloudwego/base64x v0.1.5 h1:XPciSp1xaq2VCSt6lF0phncD4koWyULpl5bUxbfCyP4=
 github.com/cloudwego/base64x v0.1.5/go.mod h1:0zlkT4Wn5C6NdauXdJRhSKRlJvmclQ1hhJgA0rcu/8w=
-github.com/cloudwego/eino v0.3.44 h1:lv4ulen+yemFtmWwPTelLi/mOtvNbFMw8gr+IFU55bU=
-github.com/cloudwego/eino v0.3.44/go.mod h1:wUjz990apdsaOraOXdh6CdhVXq8DJsOvLsVlxNTcNfY=
+github.com/cloudwego/eino v0.3.45 h1:th/Ydh3sy4QAI6fX4PjgyFIHZtCR5jWbAm3Fz0/Cwws=
+github.com/cloudwego/eino v0.3.45/go.mod h1:wUjz990apdsaOraOXdh6CdhVXq8DJsOvLsVlxNTcNfY=
 github.com/cloudwego/eino-ext/components/document/transformer/splitter/markdown v0.0.0-20250624023530-68a1e4282a8e h1:Vn8c+JX7fGhYnx0m4dijWFeagdJf33E4rwzkJL4XyB8=
 github.com/cloudwego/eino-ext/components/document/transformer/splitter/markdown v0.0.0-20250624023530-68a1e4282a8e/go.mod h1:HZNxjGsgkN+1jsXdcKR8TwnE7J3W5C8aqX/hwWyAOoU=
 github.com/cloudwego/eino-ext/components/embedding/ark v0.0.0-20250624023530-68a1e4282a8e h1:L9wPW6NJaK9GWX3KUpndlcmIEU/eCNdQFGlXG0uezm4=
