@@ -43,7 +43,7 @@ var fields = []*entity.Field{
 	},
 }
 
-func IndexerRAG() {
+func IndexerRAG(docs []*schema.Document) {
 	ctx := context.Background()
 	// 初始化嵌入器
 	timeout := 30 * time.Second
@@ -57,33 +57,28 @@ func IndexerRAG() {
 	}
 
 	indexer, err := milvus.NewIndexer(ctx, &milvus.IndexerConfig{
-		Client:            MilvusCli,
-		Collection:        collection,
-		Fields:            fields,
-		Embedding:         embedder,
+		Client:     MilvusCli,
+		Collection: collection,
+		Fields:     fields,
+		Embedding:  embedder,
 	})
 	if err != nil {
 		log.Fatalf("Failed to create indexer: %v", err)
 	}
-
-	docs := []*schema.Document{
-		{
-			ID:      "1",
-			Content: "你说得对。但是原神是一款二次元开放大世界游戏",
-			MetaData: map[string]any{
-				"author": "木乔",
+	for _, doc := range docs {
+		storeDoc := []*schema.Document{
+			{
+				ID:       doc.ID,
+				Content:  doc.Content,
+				MetaData: doc.MetaData,
 			},
-		},
+		}
+		ids, err := indexer.Store(ctx, storeDoc)
+		if err != nil {
+			log.Fatalf("Failed to store documents: %v", err)
+		}
+		println("Stored documents with IDs: %v", ids)
 	}
-
-	ids, err := indexer.Store(ctx, docs)
-	if err != nil {
-		log.Panicf("Failed to store documents: %v", err)
-
-	}
-
-	log.Printf("Stored documents with IDs: %v", ids)
-
 }
 
 func floatDocumentConverter(ctx context.Context, docs []*schema.Document, vectors [][]float64) ([]interface{}, error) {

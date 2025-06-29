@@ -2,15 +2,15 @@ package main
 
 import (
 	"context"
-	"log"
 	"os"
 	"time"
 
 	"github.com/cloudwego/eino-ext/components/embedding/ark"
 	"github.com/cloudwego/eino-ext/components/retriever/milvus"
+	"github.com/cloudwego/eino/schema"
 )
 
-func RetrieverRAG() {
+func RetrieverRAG(query string) []*schema.Document {
 	ctx := context.Background()
 	timeout := 30 * time.Second
 	embedder, err := ark.NewEmbedder(ctx, &ark.EmbeddingConfig{
@@ -22,10 +22,10 @@ func RetrieverRAG() {
 		panic(err)
 	}
 	retriever, err := milvus.NewRetriever(ctx, &milvus.RetrieverConfig{
-		Client:            MilvusCli,
-		Collection:        "AwesomeEino",
-		Partition:         nil,
-		VectorField:       "vector",
+		Client:      MilvusCli,
+		Collection:  "AwesomeEino",
+		Partition:   nil,
+		VectorField: "vector",
 		OutputFields: []string{
 			"id",
 			"content",
@@ -38,10 +38,10 @@ func RetrieverRAG() {
 		panic(err)
 	}
 
-	results, err := retriever.Retrieve(ctx, "原神")
+	results, err := retriever.Retrieve(ctx, query)
 	if err != nil {
 		panic(err)
 	}
 
-	log.Printf("Results: %v", results)
+	return results
 }

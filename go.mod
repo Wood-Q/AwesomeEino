@@ -9,6 +9,7 @@ require (
 	github.com/cloudwego/eino-ext/components/indexer/milvus v0.0.0-20250626134119-cf4f96ea0039
 	github.com/cloudwego/eino-ext/components/model/ark v0.1.13
 	github.com/cloudwego/eino-ext/components/retriever/milvus v0.0.0-20250626134119-cf4f96ea0039
+	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
 	github.com/milvus-io/milvus-sdk-go/v2 v2.4.2
 )
@@ -28,7 +29,6 @@ require (
 	github.com/go-openapi/swag v0.19.5 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
-	github.com/google/uuid v1.6.0 // indirect
 	github.com/goph/emperror v0.17.2 // indirect
 	github.com/grpc-ecosystem/go-grpc-middleware v1.3.0 // indirect
 	github.com/invopop/yaml v0.1.0 // indirect

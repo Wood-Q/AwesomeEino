@@ -11,7 +11,8 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file") // 处理加载错误
 	}
-	TransDoc()
+	BuildRAG()
+	// TransDoc()
 	//RetrieverRAG()
 	//IndexerRAG()
 	// EmbedText()

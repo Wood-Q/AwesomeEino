@@ -3,12 +3,14 @@ package main
 import (
 	"context"
 	"os"
+	"strconv"
 
 	"github.com/cloudwego/eino-ext/components/document/transformer/splitter/markdown"
 	"github.com/cloudwego/eino/schema"
+	"github.com/google/uuid"
 )
 
-func TransDoc() {
+func TransDoc() []*schema.Document {
 	ctx := context.Background()
 
 	// 初始化分割器
@@ -36,7 +38,7 @@ func TransDoc() {
 	}
 	docs := []*schema.Document{
 		{
-			ID:      "doc1",
+			ID:      uuid.New().String(),
 			Content: string(bs),
 		},
 	}
@@ -47,14 +49,10 @@ func TransDoc() {
 		panic(err)
 	}
 
-	// 处理分割结果
 	for i, doc := range results {
-		println("片段", i+1, ":", doc.Content)
-		println("标题层级：")
-		for k, v := range doc.MetaData {
-			if k == "h1" || k == "h2" || k == "h3" {
-				println("  ", k, ":", v)
-			}
-		}
+		doc.ID = docs[0].ID + "_" + strconv.Itoa(i)
+		println(doc.ID)
 	}
+
+	return results
 }

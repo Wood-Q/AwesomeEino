@@ -33,6 +33,9 @@ func TemplateChat() {
 		APIKey: os.Getenv("ARK_API_KEY"),
 		Model:  os.Getenv("MODEL"),
 	})
+	if err != nil {
+		panic(err)
+	}
 
 	answer, err := model.Generate(ctx, messages)
 	if err != nil {
