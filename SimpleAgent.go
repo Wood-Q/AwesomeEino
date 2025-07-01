@@ -2,7 +2,6 @@ package main
 
 import (
 	"context"
-	"encoding/json"
 	"fmt"
 	"log"
 	"os"
@@ -10,32 +9,44 @@ import (
 
 	"github.com/cloudwego/eino-ext/components/model/ark"
 	"github.com/cloudwego/eino/callbacks"
+	"github.com/cloudwego/eino/components/model"
 	"github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/compose"
 	"github.com/cloudwego/eino/schema"
+	callbackHelpers "github.com/cloudwego/eino/utils/callbacks"
 )
 
 func SimpleAgent() {
 
 	getGameTool := CreateTool()
 	ctx := context.Background()
-	handler := callbacks.NewHandlerBuilder().
-		OnStartFn(func(ctx context.Context, info *callbacks.RunInfo, input callbacks.CallbackInput) context.Context {
+	//大模型回调函数
+	modelHandler := &callbackHelpers.ModelCallbackHandler{
+		OnEnd: func(ctx context.Context, info *callbacks.RunInfo, output *model.CallbackOutput) context.Context {
+			// 1. output.Result 类型是 string
+			fmt.Println("模型思考过程为：")
+			fmt.Println(output.Message.Content)
 			return ctx
-		}).
-		OnEndFn(func(ctx context.Context, info *callbacks.RunInfo, output callbacks.CallbackOutput) context.Context {
-			fmt.Println("=========[OnEnd]=========")
-			outputStr, _ := json.MarshalIndent(output, "", "  ")
-			fmt.Println(string(outputStr))
-			fmt.Println("=========[OnEnd]=========")
+		},
+	}
+	//工具回调函数
+	toolHandler := &callbackHelpers.ToolCallbackHandler{
+		OnStart: func(ctx context.Context, info *callbacks.RunInfo, input *tool.CallbackInput) context.Context {
+			fmt.Printf("开始执行工具，参数: %s\n", input.ArgumentsInJSON)
 			return ctx
-		}).
-		OnErrorFn(func(ctx context.Context, info *callbacks.RunInfo, err error) context.Context {
+		},
+		OnEnd: func(ctx context.Context, info *callbacks.RunInfo, output *tool.CallbackOutput) context.Context {
+			fmt.Printf("工具执行完成，结果: %s\n", output.Response)
 			return ctx
-		}).
-		Build()
-	timeout := 30 * time.Second
+		},
+	}
+	//构建实际回调函数Handler
+	handler := callbackHelpers.NewHandlerHelper().
+		ChatModel(modelHandler).
+		Tool(toolHandler).
+		Handler()
 	// 初始化模型
+	timeout := 30 * time.Second
 	model, err := ark.NewChatModel(ctx, &ark.ChatModelConfig{
 		APIKey:  os.Getenv("ARK_API_KEY"),
 		Model:   "doubao-1.5-pro-32k-250115",
