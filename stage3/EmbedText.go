@@ -1,4 +1,4 @@
-package main
+package stage3
 
 import (
 	"context"

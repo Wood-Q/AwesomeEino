@@ -1,6 +1,7 @@
-package main
+package stage5
 
 import (
+	"AwesomeEino/stage4"
 	"context"
 	"os"
 	"time"
@@ -22,7 +23,7 @@ func RetrieverRAG(query string) []*schema.Document {
 		panic(err)
 	}
 	retriever, err := milvus.NewRetriever(ctx, &milvus.RetrieverConfig{
-		Client:      MilvusCli,
+		Client:      stage4.MilvusCli,
 		Collection:  "AwesomeEino",
 		Partition:   nil,
 		VectorField: "vector",
