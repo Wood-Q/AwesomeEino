@@ -1,7 +1,7 @@
 package main
 
 import (
-	"AwesomeEino/stage8"
+	"AwesomeEino/stage9"
 	"log"
 
 	"github.com/joho/godotenv"
@@ -12,5 +12,5 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file") // 处理加载错误
 	}
-	stage8.SimpleAgent()
+	stage9.OrcChain()
 }
