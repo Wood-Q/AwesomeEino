@@ -2,20 +2,38 @@ package main
 
 import (
 	"context"
+	"encoding/json"
 	"fmt"
 	"log"
 	"os"
 	"time"
 
 	"github.com/cloudwego/eino-ext/components/model/ark"
+	"github.com/cloudwego/eino/callbacks"
 	"github.com/cloudwego/eino/components/tool"
 	"github.com/cloudwego/eino/compose"
 	"github.com/cloudwego/eino/schema"
 )
 
 func SimpleAgent() {
+
 	getGameTool := CreateTool()
 	ctx := context.Background()
+	handler := callbacks.NewHandlerBuilder().
+		OnStartFn(func(ctx context.Context, info *callbacks.RunInfo, input callbacks.CallbackInput) context.Context {
+			return ctx
+		}).
+		OnEndFn(func(ctx context.Context, info *callbacks.RunInfo, output callbacks.CallbackOutput) context.Context {
+			fmt.Println("=========[OnEnd]=========")
+			outputStr, _ := json.MarshalIndent(output, "", "  ")
+			fmt.Println(string(outputStr))
+			fmt.Println("=========[OnEnd]=========")
+			return ctx
+		}).
+		OnErrorFn(func(ctx context.Context, info *callbacks.RunInfo, err error) context.Context {
+			return ctx
+		}).
+		Build()
 	timeout := 30 * time.Second
 	// 初始化模型
 	model, err := ark.NewChatModel(ctx, &ark.ChatModelConfig{
@@ -64,7 +82,7 @@ func SimpleAgent() {
 			Role:    schema.User,
 			Content: "请告诉我原神的URL是什么",
 		},
-	})
+	}, compose.WithCallbacks(handler))
 	if err != nil {
 		log.Fatal(err)
 	}
