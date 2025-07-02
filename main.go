@@ -1,7 +1,9 @@
 package main
 
 import (
-	"AwesomeEino/stage9"
+	"AwesomeEino/stage10"
+	"context"
+	"fmt"
 	"log"
 
 	"github.com/joho/godotenv"
@@ -12,5 +14,18 @@ func main() {
 	if err != nil {
 		log.Fatal("Error loading .env file") // 处理加载错误
 	}
-	stage9.OrcGraph("4")
+	ctx := context.Background()
+	r, err := stage10.Buildtest(ctx)
+	if err != nil {
+		panic(err)
+	}
+	variables := map[string]any{
+		"role": "可爱的女子高中生",
+		"task": "安慰一下我",
+	}
+	output, err := r.Invoke(ctx, variables)
+	if err != nil {
+		panic(err)
+	}
+	fmt.Println(output)
 }
