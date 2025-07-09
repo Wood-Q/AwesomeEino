@@ -4,7 +4,6 @@ import (
 	"context"
 	"encoding/json"
 	"fmt"
-	"reactDemo/internal/logs"
 
 	"github.com/cloudwego/eino-ext/components/model/ark"
 	"github.com/cloudwego/eino/components/tool"
@@ -129,7 +128,7 @@ func (a *AnalyzeTool) InvokableRun(ctx context.Context, argumentsInJSON string, 
 		Model:  arkModelName,
 	})
 	if err != nil {
-		logs.Errorf("failed to create chat model: %v", err)
+		fmt.Printf("failed to create chat model: %v", err)
 		return "", err
 	}
 	//调用模型
@@ -145,7 +144,7 @@ func (a *AnalyzeTool) InvokableRun(ctx context.Context, argumentsInJSON string, 
 	}
 	response,err:=arkModel.Generate(ctx,AnalyzeInput)
 	if err!= nil {
-		logs.Errorf("failed to generate: %v", err)
+		fmt.Printf("failed to generate: %v", err)
 		return "", err
 	}
 	return response.Content,nil

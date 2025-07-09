@@ -2,7 +2,7 @@ package main
 
 import (
 	"context"
-	"reactDemo/internal/logs"
+	"fmt"
 
 	"github.com/cloudwego/eino-ext/components/model/ark"
 	"github.com/cloudwego/eino/components/tool"
@@ -21,7 +21,7 @@ func newAddSpecialist(ctx context.Context) (*host.Specialist, error) {
 		Model:  arkModelName,
 	})
 	if err != nil {
-		logs.Errorf("failed to create chat model: %v", err)
+		fmt.Printf("failed to create chat model: %v", err)
 		return nil,err
 	}
 	addtool:=GetAddTool()

@@ -18,7 +18,7 @@ package main
 
 import (
 	"context"
-	"reactDemo/internal/logs"
+	"fmt"
 
 	"github.com/cloudwego/eino-ext/components/model/ark"
 	"github.com/cloudwego/eino/flow/agent/multiagent/host"
@@ -32,7 +32,7 @@ import (
 		Model:  arkModelName,
 	})
 	if err != nil {
-		logs.Errorf("failed to create chat model: %v", err)
+		fmt.Printf("failed to create chat model: %v", err)
 		return nil,err
 	}
 
