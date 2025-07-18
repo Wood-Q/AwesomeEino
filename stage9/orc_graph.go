@@ -46,11 +46,6 @@ func OrcGraph(choice string) {
 	if err != nil {
 		panic(err)
 	}
-	//分支连接
-	err = g.AddEdge(compose.START, "lambda0")
-	if err != nil {
-		panic(err)
-	}
 	//加入分支
 	err = g.AddBranch("lambda0", compose.NewGraphBranch(func(ctx context.Context, in string) (endNode string, err error) {
 		if in == "毫猫" {
@@ -63,6 +58,11 @@ func OrcGraph(choice string) {
 		// 否则，返回 compose.END，表示流程结束
 		return compose.END, nil
 	}, map[string]bool{"lambda1": true, "lambda2": true, "lambda3": true, compose.END: true}))
+	if err != nil {
+		panic(err)
+	}
+	//分支连接
+	err = g.AddEdge(compose.START, "lambda0")
 	if err != nil {
 		panic(err)
 	}

@@ -15,6 +15,8 @@ func main() {
 		log.Fatal("Error loading .env file") // 处理加载错误
 	}
 	ctx := context.Background()
+	// stage9.OrcGraphWithModel(ctx, map[string]string{"role": "cute", "content": "你好啊"})
+
 	r, err := stage10.Buildtest(ctx)
 	if err != nil {
 		panic(err)
