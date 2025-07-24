@@ -6,6 +6,9 @@ import (
 	"fmt"
 	"log"
 
+	ccb "github.com/cloudwego/eino-ext/callbacks/cozeloop"
+	"github.com/cloudwego/eino/callbacks"
+	"github.com/coze-dev/cozeloop-go"
 	"github.com/joho/godotenv"
 )
 
@@ -15,6 +18,14 @@ func main() {
 		log.Fatal("Error loading .env file") // 处理加载错误
 	}
 	ctx := context.Background()
+	client, err := cozeloop.NewClient()
+    if err != nil {
+       panic(err)
+    }
+    defer client.Close(ctx)
+    // 在服务 init 时 once 调用
+    handler := ccb.NewLoopHandler(client)
+    callbacks.AppendGlobalHandlers(handler)
 	// stage9.OrcGraphWithModel(ctx, map[string]string{"role": "cute", "content": "你好啊"})
 	// stage9.OrcGraphWithState(ctx, map[string]string{"role": "cute", "content": "你好啊"})
 	// stage9.OrcGraphWithCallback(ctx, map[string]string{"role": "cute", "content": "你好啊"})

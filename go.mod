@@ -16,13 +16,17 @@ require (
 )
 
 require (
+	github.com/bluele/gcache v0.0.2 // indirect
 	github.com/bytedance/sonic v1.13.2 // indirect
 	github.com/bytedance/sonic/loader v0.2.4 // indirect
 	github.com/cenkalti/backoff/v4 v4.3.0 // indirect
 	github.com/cloudwego/base64x v0.1.5 // indirect
+	github.com/cloudwego/eino-ext/callbacks/cozeloop v0.1.2 // indirect
 	github.com/cockroachdb/errors v1.9.1 // indirect
 	github.com/cockroachdb/logtags v0.0.0-20211118104740-dabe8e521a4f // indirect
 	github.com/cockroachdb/redact v1.1.3 // indirect
+	github.com/coze-dev/cozeloop-go v0.1.7 // indirect
+	github.com/coze-dev/cozeloop-go/spec v0.1.0 // indirect
 	github.com/davecgh/go-spew v1.1.2-0.20180830191138-d8f796af33cc // indirect
 	github.com/dustin/go-humanize v1.0.1 // indirect
 	github.com/getkin/kin-openapi v0.118.0 // indirect
@@ -30,6 +34,7 @@ require (
 	github.com/go-openapi/jsonpointer v0.21.0 // indirect
 	github.com/go-openapi/swag v0.23.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
+	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/golang/protobuf v1.5.4 // indirect
 	github.com/goph/emperror v0.17.2 // indirect
 	github.com/gorilla/mux v1.8.1 // indirect
@@ -60,6 +65,8 @@ require (
 	github.com/tidwall/match v1.1.1 // indirect
 	github.com/tidwall/pretty v1.2.0 // indirect
 	github.com/twitchyliquid64/golang-asm v0.15.1 // indirect
+	github.com/valyala/bytebufferpool v1.0.0 // indirect
+	github.com/valyala/fasttemplate v1.2.2 // indirect
 	github.com/volcengine/volc-sdk-golang v1.0.199 // indirect
 	github.com/volcengine/volcengine-go-sdk v1.1.16 // indirect
 	github.com/yargevad/filepathx v1.0.0 // indirect
