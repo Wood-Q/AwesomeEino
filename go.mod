@@ -16,6 +16,7 @@ require (
 	github.com/google/uuid v1.6.0
 	github.com/joho/godotenv v1.5.1
 	github.com/milvus-io/milvus-sdk-go/v2 v2.4.2
+	github.com/volcengine/volcengine-go-sdk v1.1.21
 )
 
 require (
@@ -69,7 +70,6 @@ require (
 	github.com/valyala/bytebufferpool v1.0.0 // indirect
 	github.com/valyala/fasttemplate v1.2.2 // indirect
 	github.com/volcengine/volc-sdk-golang v1.0.199 // indirect
-	github.com/volcengine/volcengine-go-sdk v1.1.21 // indirect
 	github.com/yargevad/filepathx v1.0.0 // indirect
 	golang.org/x/arch v0.14.0 // indirect
 	golang.org/x/crypto v0.39.0 // indirect
