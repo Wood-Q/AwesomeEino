@@ -143,5 +143,9 @@ func genCallback() callbacks.Handler {
 		fmt.Printf("当前%s节点输出:%s\n", info.Component, output)
 		return ctx
 	}).Build()
+	/* handler2 := callbacks.NewHandlerBuilder().OnErrorFn(func(ctx context.Context, info *callbacks.RunInfo, err error) context.Context {
+		fmt.Printf("当前%s节点错误:%s\n", info.Component, err)
+		return ctx
+	}).Build() */
 	return handler
 }
